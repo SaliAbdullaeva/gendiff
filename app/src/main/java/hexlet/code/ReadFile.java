@@ -1,17 +1,22 @@
 package hexlet.code;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 
 class ReadFile {
-    public static String readFile(String file) throws Exception {
-        Path path = Paths.get(file).toAbsolutePath().normalize();
-
-        if (!Files.exists(path)) {
-            throw new Exception("File '" + path + "' does not exist");
-        }
-
-        return Files.readString(path);
+    public static String readFile(Path filePath) throws IOException {
+        return Files.readString(filePath);
     }
+
+    public static String getFileExtension(Path filePath) {
+        return filePath.getName(filePath.getNameCount() - 1)
+                .toString().split("\\.")[1].trim().toLowerCase();
+    }
+
+    public static Path getPath(String filePath) {
+        return Paths.get(filePath).toAbsolutePath().normalize();
+    }
+
 }
