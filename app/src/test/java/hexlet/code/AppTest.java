@@ -29,12 +29,12 @@ public final class AppTest {
     @BeforeEach
     void setUp() throws Exception {
         System.setOut(new PrintStream(output));
-        Path pathStylish = ReadFile.getPath(getPathToFixture("EXPECTED_STYLISH"));
-        expectedStylish = ReadFile.readFile(pathStylish);
-        Path pathPlain = ReadFile.getPath(getPathToFixture("EXPECTED_PLAIN"));
-        expectedPlain = ReadFile.readFile(pathPlain);
-        Path pathJson = ReadFile.getPath(getPathToFixture("EXPECTED_JSON"));
-        expectedJson = ReadFile.readFile(pathJson);
+        Path pathStylish = Reader.getPath(getPathToFixture("EXPECTED_STYLISH"));
+        expectedStylish = Reader.readFile(pathStylish);
+        Path pathPlain = Reader.getPath(getPathToFixture("EXPECTED_PLAIN"));
+        expectedPlain = Reader.readFile(pathPlain);
+        Path pathJson = Reader.getPath(getPathToFixture("EXPECTED_JSON"));
+        expectedJson = Reader.readFile(pathJson);
     }
 
     @Test
@@ -53,8 +53,8 @@ public final class AppTest {
 
         String[] argsYamlPlain = new String[]{
                 "-f=plain",
-                getPathToFixture("fileNested1.yml"),
-                getPathToFixture("fileNested2.yaml")
+                getPathToFixture("fileNested3.yml"),
+                getPathToFixture("fileNested4.yml")
         };
         int exitCode2 = new CommandLine(new App()).execute(argsYamlPlain);
         assertEquals(expectedPlain, output.toString(StandardCharsets.UTF_8).trim());
@@ -64,7 +64,7 @@ public final class AppTest {
 
         String[] argsYamlJson = new String[]{
                 "-f=json",
-                getPathToFixture("fileNested1.yml"),
+                getPathToFixture("fileNested3.yml"),
                 getPathToFixture("fileNested2.json")
         };
         int exitCode3 = new CommandLine(new App()).execute(argsYamlJson);
@@ -86,8 +86,8 @@ public final class AppTest {
 
         String[] argsFileNotExist = new String[]{
                 "-f=stylish",
-                getPathToFixture("fil.yml"),
-                getPathToFixture("fileNested2.yaml")
+                getPathToFixture("file.yml"),
+                getPathToFixture("fileNested3.yml")
         };
         int exitCode3 = new CommandLine(new App()).execute(argsFileNotExist);
         assertEquals(ERROR_EXIT_CODE, exitCode3);
