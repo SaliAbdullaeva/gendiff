@@ -36,7 +36,6 @@ public final class DifferTest {
         assertEquals(expectedStylish, actualStylish);
     }
 
-
     @Test
     @DisplayName("'generate' method using three arguments works correctly")
     void testGenerateWithThreeArgs() throws Exception {
