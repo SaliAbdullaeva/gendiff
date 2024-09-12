@@ -29,12 +29,12 @@ public final class AppTest {
     @BeforeEach
     void setUp() throws Exception {
         System.setOut(new PrintStream(output));
-        Path pathStylish = Reader.getPath(getPathToFixture("EXPECTED_STYLISH"));
-        expectedStylish = Reader.readFile(pathStylish);
-        Path pathPlain = Reader.getPath(getPathToFixture("EXPECTED_PLAIN"));
-        expectedPlain = Reader.readFile(pathPlain);
-        Path pathJson = Reader.getPath(getPathToFixture("EXPECTED_JSON"));
-        expectedJson = Reader.readFile(pathJson);
+        Path pathStylish =  Differ.getPath(getPathToFixture("EXPECTED_STYLISH"));
+        expectedStylish = Differ.readFile(pathStylish);
+        Path pathPlain = Differ.getPath(getPathToFixture("EXPECTED_PLAIN"));
+        expectedPlain = Differ.readFile(pathPlain);
+        Path pathJson = Differ.getPath(getPathToFixture("EXPECTED_JSON"));
+        expectedJson = Differ.readFile(pathJson);
     }
 
     @Test
