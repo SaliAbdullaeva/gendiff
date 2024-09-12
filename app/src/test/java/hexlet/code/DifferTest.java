@@ -1,14 +1,13 @@
 package hexlet.code;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.nio.file.Path;
+
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.skyscreamer.jsonassert.JSONAssert;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.nio.file.Path;
 
 public final class DifferTest {
     private String expectedStylish;
@@ -17,7 +16,6 @@ public final class DifferTest {
 
     @BeforeEach
     void setUp() throws Exception {
-           // Чтение ожидаемых результатов из файлов перед каждым тестом
         Path validPathStylish = Differ.getPath(getPathToFixture("EXPECTED_STYLISH"));
         expectedStylish = Differ.readFile(validPathStylish);
         Path validPathPlain = Differ.getPath(getPathToFixture("EXPECTED_PLAIN"));
@@ -27,7 +25,6 @@ public final class DifferTest {
     }
 
     @Test
-            // Тест для метода с двумя аргументами
     void testGenerateWithTwoArgs() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested1.json"),
@@ -38,7 +35,6 @@ public final class DifferTest {
     }
 
     @Test
-           // Тест для метода с тремя аргументами
     void testGenerateWithThreeArgs() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested1.json"),
@@ -49,7 +45,6 @@ public final class DifferTest {
     }
 
     @Test
-           // Тест для метода с JSON файлами в формате stylish
     void testGenerateWithJson() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested1.json"),
@@ -60,7 +55,6 @@ public final class DifferTest {
     }
 
     @Test
-           //Тест для метода с JSON файлами в формате plain
     void testGenerateWithJsonPlain() throws Exception {
         String actualPlain = Differ.generate(
                 getPathToFixture("fileNested1.json"),
@@ -71,7 +65,6 @@ public final class DifferTest {
     }
 
     @Test
-            // Тест для метода с JSON файлами в формате json
     void testGenerateWithJsonJson() throws Exception {
         String actualJson = Differ.generate(
                 getPathToFixture("fileNested1.json"),
@@ -82,7 +75,6 @@ public final class DifferTest {
     }
 
     @Test
-           // Тест для метода с YAML файлами в формате stylish
     void testGenerateWithYaml() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested3.yml"),
@@ -93,7 +85,6 @@ public final class DifferTest {
     }
 
     @Test
-           // Тест для метода с YAML файлами в формате plain
     void testGenerateWithYamlPlain() throws Exception {
         String actualPlain = Differ.generate(
                 getPathToFixture("fileNested3.yml"),
@@ -104,7 +95,6 @@ public final class DifferTest {
     }
 
     @Test
-           // Тест для метода с YAML файлами в формате json
     void testGenerateWithYamlJson() throws Exception {
         String actualJson = Differ.generate(
                 getPathToFixture("fileNested3.yml"),
@@ -114,13 +104,6 @@ public final class DifferTest {
         JSONAssert.assertEquals(expectedJson, actualJson, JSONCompareMode.STRICT);
     }
 
-      // Вспомогательный метод для чтения файлов с ожидаемыми результатами
-    private String readFixture(String fileName) throws Exception {
-        Path path = Differ.getPath(getPathToFixture(fileName));
-        return Differ.readFile(path);
-    }
-
-      // Вспомогательный метод для получения пути к тестовым файлам
     public String getPathToFixture(String file) {
         return "./src/test/resources/" + file;
     }
