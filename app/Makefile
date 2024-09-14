@@ -1,12 +1,15 @@
 .DEFAULT_GOAL := build-run
 
 install:
+    ./gradlew installDist
+
+installDist:
 # Очистка от результатов предыдущей сборки
 	./gradlew clean
 # Создание jar исполняемого файла
 	./gradlew installDist
 
-run-dist:
+run-dist: installDist
 # Запуск исполняемого файла
 	./build/install/app/bin/app
 
@@ -27,4 +30,4 @@ lint:
 
 build-run: build run
 
-.PHONY: build install
+.PHONY: install build installDist run-dist test report lint build-run
