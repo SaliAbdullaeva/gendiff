@@ -26,6 +26,9 @@ report:
 lint:
 	./gradlew checkstyleMain
 
+installDist:
+	./gradlew installDist
+
 build-run: build run
 
 .PHONY: build

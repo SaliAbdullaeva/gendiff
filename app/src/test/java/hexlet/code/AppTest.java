@@ -41,7 +41,7 @@ public final class AppTest {
     @DisplayName("App works correctly")
     void testSuccessExitCode() throws Exception {
         String[] argsYamlStylish = new String[]{
-                "-f=stylish",
+            "-f=stylish",
                 getPathToFixture("fileNested1.json"),
                 getPathToFixture("fileNested2.json")
         };
@@ -52,7 +52,7 @@ public final class AppTest {
         output.reset();
 
         String[] argsYamlPlain = new String[]{
-                "-f=plain",
+            "-f=plain",
                 getPathToFixture("fileNested3.yml"),
                 getPathToFixture("fileNested4.yml")
         };
@@ -63,7 +63,7 @@ public final class AppTest {
         output.reset();
 
         String[] argsYamlJson = new String[]{
-                "-f=json",
+            "-f=json",
                 getPathToFixture("fileNested3.yml"),
                 getPathToFixture("fileNested2.json")
         };
@@ -77,7 +77,7 @@ public final class AppTest {
     @DisplayName("App returns error exit code when provided with incorrect args")
     void testErrorExitCode() {
         String[] argsWrongFormat = new String[]{
-                "-f=stailish",
+            "-f=stailish",
                 getPathToFixture("fileNested1.json"),
                 getPathToFixture("fileNested2.json")
         };
@@ -85,7 +85,7 @@ public final class AppTest {
         assertEquals(ERROR_EXIT_CODE, exitCode2);
 
         String[] argsFileNotExist = new String[]{
-                "-f=stylish",
+            "-f=stylish",
                 getPathToFixture("file.yml"),
                 getPathToFixture("fileNested3.yml")
         };
@@ -99,6 +99,8 @@ public final class AppTest {
     }
 
     private String getPathToFixture(String file) {
+
         return "./src/test/resources/" + file;
     }
 }
+

@@ -28,7 +28,7 @@ public final class DifferTest {
     void testGenerateWithTwoArgs() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested1.json"),
-                getPathToFixture("fileNested3.yml")
+                getPathToFixture("fileNested4.yml")
         );
 
         assertEquals(expectedStylish, actualStylish);
@@ -38,12 +38,13 @@ public final class DifferTest {
     void testGenerateWithThreeArgs() throws Exception {
         String actualStylish = Differ.generate(
                 getPathToFixture("fileNested1.json"),
-                getPathToFixture("fileNested3.yml"),
+                getPathToFixture("fileNested4.yml"),
                 "stylish"
         );
         assertEquals(expectedStylish, actualStylish);
     }
 
+    //проверка generate с файлами json
     @Test
     void testGenerateWithJson() throws Exception {
         String actualStylish = Differ.generate(
@@ -74,6 +75,7 @@ public final class DifferTest {
         JSONAssert.assertEquals(expectedJson, actualJson, JSONCompareMode.STRICT);
     }
 
+    //проверка generate с файлами YAML (работает корректно)
     @Test
     void testGenerateWithYaml() throws Exception {
         String actualStylish = Differ.generate(
