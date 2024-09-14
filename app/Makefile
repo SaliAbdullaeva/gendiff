@@ -3,7 +3,7 @@
 .DEFAULT_GOAL := build-run
 
 install:
-	./gradlew install
+	./gradlew installDist
 
 run-dist:
 	# Очистка от результатов предыдущей сборки
