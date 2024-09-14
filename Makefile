@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run
 
-install:
-	make -C app install
+installDist:
+	make -C app installDist
 
 run-dist:
 	make -C app run-dist

@@ -1,8 +1,6 @@
-# Makefile
-
 .DEFAULT_GOAL := build-run
 
-install:
+installDist:
 	./gradlew installDist
 
 run-dist:
