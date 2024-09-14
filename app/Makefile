@@ -31,4 +31,4 @@ installDist:
 
 build-run: build run
 
-.PHONY: build
+.PHONY: build install

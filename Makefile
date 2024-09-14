@@ -33,4 +33,4 @@ lint:
 build-run: build run
 
 # Фиктивная цель для предотвращения конфликтов с файлами
-.PHONY: build
+.PHONY: build install
