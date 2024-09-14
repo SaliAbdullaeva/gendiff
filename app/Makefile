@@ -1,14 +1,13 @@
 .DEFAULT_GOAL := build-run
 
 install:
+# Очистка от результатов предыдущей сборки
+	./gradlew clean
+# Создание jar исполняемого файла
 	./gradlew installDist
 
 run-dist:
-	# Очистка от результатов предыдущей сборки
-	./gradlew clean
-	# Создание jar исполняемого файла
-	./gradlew installDist
-	# Запуск исполняемого файла
+# Запуск исполняемого файла
 	./build/install/app/bin/app
 
 build:
@@ -25,9 +24,6 @@ report:
 
 lint:
 	./gradlew checkstyleMain
-
-installDist:
-	./gradlew installDist
 
 build-run: build run
 

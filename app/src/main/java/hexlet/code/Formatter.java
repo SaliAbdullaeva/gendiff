@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public final class Formatter {
-
     public static String formatString(List<Map<String, Object>> differEntryList, String format) throws IOException {
         StringFormatter formatter = getFormatter(format);
         return formatter.format(differEntryList);
