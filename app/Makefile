@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run  # Определение цели по умолчанию
 
 # Устанавливает дистрибутив
-install:
+installDist:
 	./gradlew installDist
 
 # Запускает приложение из дистрибутива

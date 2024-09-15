@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := build-run  # Определение цели по умолчанию
 
 # Устанавливает приложение
-install:
-	make -C app install
+installDist:
+	make -C app installDistl
 
 # Запускает приложение из дистрибутива
 run-dist:
